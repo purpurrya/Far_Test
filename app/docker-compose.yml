@@ -1,0 +1,38 @@
+services:
+    nginx-service:
+        image: nginx:stable-alpine
+        container_name: nginx-container
+        ports:
+            - "8080:80"
+        volumes:
+            - .:/var/www/project
+            - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+        depends_on:
+            - php83-service
+            - mysql8-service
+        networks:
+            - nginx-php83-mysql8
+    php83-service:
+        build: .
+        container_name: php83-container
+        ports:
+            - "9000:9000"
+        volumes:
+            - .:/var/www/project
+        networks:
+            - nginx-php83-mysql8
+    mysql8-service:
+        image: mysql
+        container_name: mysql8-container
+        ports:
+            - "3306:3306"
+        volumes:
+            - ./mysql:/var/lib/mysql
+            - ./mysql-init:/docker-entrypoint-initdb.d
+        restart: always 
+        environment:
+            MYSQL_ROOT_PASSWORD: secret
+        networks:
+            - nginx-php83-mysql8
+networks:
+    nginx-php83-mysql8: {}  
