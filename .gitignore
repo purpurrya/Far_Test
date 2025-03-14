@@ -1,5 +1,20 @@
-# Created by https://www.toptal.com/developers/gitignore/api/symfony,windows,phpunit
-# Edit at https://www.toptal.com/developers/gitignore?templates=symfony,windows,phpunit
+# Created by https://www.toptal.com/developers/gitignore/api/symfony,windows,linux,phpunit
+# Edit at https://www.toptal.com/developers/gitignore?templates=symfony,windows,linux,phpunit
+
+### Linux ###
+*~
+
+# temporary files which can be created if a process still has a handle open of a deleted file
+.fuse_hidden*
+
+# KDE directory preferences
+.directory
+
+# Linux trash folder which might appear on any partition or disk
+.Trash-*
+
+# .nfs files are created when an open file is removed but is still being accessed
+.nfs*
 
 ### PHPUnit ###
 # Covers PHPUnit
@@ -10,7 +25,7 @@
 .phpunit.cache
 
 # PHPUnit
-/app/phpunit.xml
+/./phpunit.xml
 /phpunit.xml
 
 # Build data
@@ -18,13 +33,13 @@
 
 ### Symfony ###
 # Cache and logs (Symfony2)
-/app/cache/*
-/app/logs/*
-!app/cache/.gitkeep
-!app/logs/.gitkeep
+/./cache/*
+/./logs/*
+!./cache/.gitkeep
+!./logs/.gitkeep
 
 # Email spool folder
-/app/spool/*
+/./spool/*
 
 # Cache, session files and logs (Symfony3)
 /var/cache/*
@@ -39,11 +54,11 @@
 !var/log/.gitkeep
 
 # Parameters
-/app/config/parameters.yml
-/app/config/parameters.ini
+/./config/parameters.yml
+/./config/parameters.ini
 
 # Managed by Composer
-/app/bootstrap.php.cache
+/./bootstrap.php.cache
 /var/bootstrap.php.cache
 /bin/*
 !bin/console
@@ -100,4 +115,4 @@ $RECYCLE.BIN/
 # MySQL 
 mysql/
 
-# End of https://www.toptal.com/developers/gitignore/api/symfony,windows,phpunit
+# End of https://www.toptal.com/developers/gitignore/api/symfony,windows,linux,phpunit

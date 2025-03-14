@@ -4,21 +4,22 @@
 ## Развёртывание
 
 1.  **Сборка и запуск контейнеров:**
-    `docker compose up -d --build`
-    Собирает образы и запускает контейнеры в фоновом режиме.
+    `docker compose up -d`
+    Соберите образы и запустите контейнеры в фоновом режиме.
 
 2.  **Создание миграции:**
-    `docker compose run --rm php83-service php bin/console make:migration`
-    Запускает контейнер с PHP и создает новую миграцию на основе изменений в модели данных.
+    `docker compose exec php83-service php bin/console make:migration`
+    Запустите контейнер с PHP и создайте новую миграцию на основе изменений в модели данных.
 
-3.  **Применение миграций:**
-    `docker compose run --rm php83-service php bin/console doctrine:migrations:migrate`
-    `docker compose run --rm php83-service php bin/console doctrine:migrations:migrate --env=test`
-    Применяет все миграции к базам данных (основной и тестовой).
+3.  **Примените миграции к основной базе данных:**
+    `docker compose exec php83-service php bin/console doctrine:migrations:migrate`
+
+4.  **Примените миграции к тестовой базе данных:**
+    `docker compose exec php83-service php bin/console doctrine:migrations:migrate --env=test`
 
 4.  **Запуск тестов:**
     `docker compose run --rm php83-service php bin/phpunit`
-    Запускает тесты внутри контейнера.
+    Запустите тесты внутри контейнера.
 
 ## Документация API
 
